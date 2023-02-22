@@ -1,0 +1,52 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+   background-image: url(../images/background.jpeg);
+   background-repeat:no-repeat;
+   background-size:cover;
+   background-attachment: fixed;
+}
+
+img{
+    max-width: 100%;
+}
+
+.navbar-brand{
+    width: 25%;
+}
+
+
+/*MEDIA QUERIES*/
+/* TABLET */
+@media (min-width: 768px) {
+    .navbar-expand-md .navbar-collapse {
+        justify-content: end;
+        padding-right: 1rem;
+    }
+    .navbar-expand-md .navbar-nav {
+        width: 80%;
+        justify-content: space-between;
+    }
+}
+/* ESCRITORIO */
+@media (min-width: 1200px) {
+}
+
+/* paleta de colores */
+/* CSS HEX */
+/* --dogwood-rose: #DA0168ff;
+--dogwood-rose-2: #D90166ff;
+--red-crayola: #E90044ff;
+--black: #000000ff;
+--maroon: #800000ff; */
+
+/* CSS HSL */
+/* --dogwood-rose: hsla(332, 99%, 43%, 1);
+--dogwood-rose-2: hsla(332, 99%, 43%, 1);
+--red-crayola: hsla(342, 100%, 46%, 1);
+--black: hsla(0, 0%, 0%, 1);
+--maroon: hsla(0, 100%, 25%, 1); */
+
