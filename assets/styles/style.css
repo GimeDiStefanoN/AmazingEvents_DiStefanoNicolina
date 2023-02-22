@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&family=Lato:ital,wght@0,100;0,300;0,400;1,900&family=Quicksand:wght@300;700&display=swap');
+
 *{
     margin: 0;
     padding: 0;
@@ -8,6 +10,7 @@ body{
    background-repeat:no-repeat;
    background-size:cover;
    background-attachment: fixed;
+   font-family: 'Lato', sans-serif;
 }
 
 img{
@@ -15,9 +18,68 @@ img{
 }
 
 .navbar-brand{
-    width: 25%;
+    width: 30%;
+}
+footer{
+    background-color: #212529;
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+footer ul li{
+    list-style: none;
+}
+footer ul li a{
+   text-decoration: none;
+   color: whitesmoke;
+}
+.footer1{
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+}
+.redes ul{
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    justify-content: space-around;
+    padding: 1rem 0;
 }
 
+.footer1 .redes ul li i{
+    color: hsla(342, 100%, 46%, 1);
+    font-size: 2rem;
+}
+.footer1 h5{
+    color: whitesmoke;
+    text-decoration: underline;
+    text-align: center;
+    font-size: 1rem;
+    text-transform: uppercase;
+}
+.footer1 .links{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.footer1 .links ul{
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.footer1 .links ul li a:hover{
+    color: hsla(342, 100%, 46%, 1);
+}
+.footer2 .copy{
+    color: whitesmoke;
+    text-align: center;
+    padding: 0;
+}
 
 /*MEDIA QUERIES*/
 /* TABLET */
@@ -30,6 +92,15 @@ img{
         width: 80%;
         justify-content: space-between;
     }
+    .footer1{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+    }
+    .footer1 .redes, .footer1 .links{
+        width: 50%;
+    }
+   
 }
 /* ESCRITORIO */
 @media (min-width: 1200px) {

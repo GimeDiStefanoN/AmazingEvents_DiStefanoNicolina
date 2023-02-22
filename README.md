@@ -1,6 +1,9 @@
 ___
 <h1 align="center">  WebSite Amazing Event</h1>
 
+<p align="center">
+   <img src="https://img.shields.io/badge/STATUS-EN%20DESAROLLO-green">
+</p>
 
 ##	:white_check_mark: DESCRIPCION
 
