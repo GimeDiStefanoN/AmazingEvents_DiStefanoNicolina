@@ -16,10 +16,36 @@ body{
 img{
     max-width: 100%;
 }
-
+/* HEADER */
 .navbar-brand{
     width: 30%;
 }
+/* MAIN */
+.banner{
+    background-color: rgba(213, 45, 169, 0.734);
+    height: 100px;
+    /* filter: blur(10px); */
+    position: relative;
+}
+.banner h1, .banner button{
+    position: absolute;
+    z-index: 1;
+}
+.banner h1{
+    font-family: 'Quicksand';
+    font-style: normal;
+    font-weight: 700;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    letter-spacing: 0.2rem;
+}
+
+/* FOOTER */
 footer{
     background-color: #212529;
     display: flex;
