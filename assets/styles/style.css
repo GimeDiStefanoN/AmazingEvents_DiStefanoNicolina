@@ -16,6 +16,7 @@ body{
 
 img{
     max-width: 100%;
+    height: 100%;
 }
 /* HEADER */
 .navbar-brand{
@@ -54,7 +55,7 @@ main{
 /* -- UPCOMING */
 /* -- PAST */
 /* -- CONTACT */
-.containerForm{
+.containerForm, .containerDetail{
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -75,6 +76,30 @@ main{
 }
 /* -- STATS */
 /* -- DETAIL */
+.containerDetailData{
+    width: 80%;
+    height: 530px;
+    background-color: white;
+    margin: 1rem;
+    display: flex;
+    flex-direction: column;
+}
+.containerDetail figure, .containerDetail section{
+    height: 50%;
+    margin: 0;
+}
+.containerDetail figure img{
+    object-fit: contain;
+}
+.containerDetail section{
+    padding: 0 1rem;
+}
+.containerDetail section h2{
+    text-align: center;
+}
+.containerDetail section p{
+    text-align: justify;
+}
 /* FOOTER */
 footer{
     background-color: #212529;
@@ -159,11 +184,24 @@ footer ul li a{
     .containerFormData{
         width: 60%;
     }
+    .contenedorMain-details{
+        height: 90%;
+    }
+    .containerDetailData{
+        gap: 1rem;
+        height: 90%;
+    }
+    .containerDetail figure img{
+        width: 100%;
+        object-fit: cover;
+    }
    
 }
 /* ESCRITORIO */
 @media (min-width: 1200px) {
-    
+    footer{
+        bottom: auto;
+    }
     .footer1 .redes{
         width: 20%;
     }
@@ -177,6 +215,24 @@ footer ul li a{
     .containerFormData{
         width: 40%;
         height: 520px;
+    }
+    .containerDetail{
+        height: 90%;
+    }
+    .containerDetailData{
+        flex-direction: row;
+    }
+    .containerDetailData figure{
+        width: 50%;
+        height: 100%;
+    }
+    .containerDetailData section{
+        width: 50%;
+        height: 100%;
+        padding: 2rem 1rem;
+    }
+    .containerDetailData section p{
+        height: 90%;
     }
 }
 
