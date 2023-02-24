@@ -45,47 +45,43 @@
     <main class="contenedorMain-contact">
         <section class="banner">
             <h1>Contact</h1>
-            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
-                <a href="./past_Events.html">
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev" onclick="location.href='./past_Events.html'">
                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                     <span class="visually-hidden">Previous</span>
-                </a>
               </button>
-              <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
-                <a href="./stats.html">
+              <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next" onclick="location.href='./stats.html'">
                     <span class="carousel-control-next-icon" aria-hidden="true"></span>
                     <span class="visually-hidden">Next</span>
-                </a>
               </button>
         </section>
         <div class="containerForm">
-            <div class="containerFormData">
+            <form class="containerFormData">
                 <div class="mb-3">
                     <label for="exampleFormControlInput1" class="form-label">Name</label>
-                    <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="John Wick">
-                  </div>
+                    <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="John Wick" required>
+                </div>
                 <div class="mb-3">
                     <label for="exampleFormControlInput1" class="form-label">Email address</label>
-                    <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
-                  </div>
-                  <div class="mb-3">
-                    <label for="exampleFormControlTextarea1" class="form-label">Example textarea</label>
-                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-                  </div>
-                  <div class="mb-3">
-                    <button type="submit" class="btn btn-primary mb-3">Submit</button>
-                  </div>
-            </div>
+                    <input type="email" class="form-control" id="exampleFormControlInput12" placeholder="name@example.com" required>
+                </div>
+                <div class="mb-3">
+                <label for="exampleFormControlTextarea1" class="form-label">Example textarea</label>
+                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" required></textarea>
+                </div>
+                <div class="mb-3">
+                <button type="submit" class="btn btn-primary mb-3">Submit</button>
+                </div>
+            </form>
         </div> 
     </main>
     
-    <footer>
+    <footer id="footerContact">
         <div class="footer1">
             <div class="redes">
                 <ul>
                     <li><a href="http://facebook.com" target="_blank" rel="noopener noreferrer"><i class="bi bi-facebook"></i></a></li>
-                    <li><a href="http://instagram.com" target="_blank" rel="noopener noreferrer"><i class="bi bi-instagram"></i></a></i></li>
-                    <li><a href="https://wa.me/5490000000000 target=" target="_blank" rel="noopener noreferrer"><i class="bi bi-whatsapp"></i></a></li>
+                    <li><a href="http://instagram.com" target="_blank" rel="noopener noreferrer"><i class="bi bi-instagram"></i></a></li>
+                    <li><a href="https://wa.me/5490000000000" target="_blank" rel="noopener noreferrer"><i class="bi bi-whatsapp"></i></a></li>
                 </ul>
             </div>
             <section class="links">

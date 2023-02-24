@@ -115,6 +115,24 @@ main{
    width: 100%;
 }
 /* -- STATS */
+.containerdataTable{
+    display: flex;
+    justify-content: center;
+}
+.table-responsive{
+    background-color: white;
+    width: 90%;
+}
+table thead tr{
+    background-color: rgb(202, 198, 198);
+    font-size: 1.5rem;
+}
+table tbody tr{
+    height: 30px;
+}
+table tbody tr td{
+    width: 33%;
+}
 /* -- DETAIL */
 .containerDetailData{
     width: 80%;
@@ -230,6 +248,9 @@ footer ul li a{
     footer{
         bottom: auto;
     }
+    .contenedorMain-stats, .contenedorMain-contact, .contenedorMain-details{
+        height: 90vh;
+    }
     .navbar-expand-md .navbar-collapse {
         justify-content: end;
         padding-right: 1rem;
@@ -238,8 +259,12 @@ footer ul li a{
         width: 80%;
         justify-content: space-between;
     }
-    footer{
-        bottom: auto;
+    .navbar-nav {
+        align-items: center;
+    }
+    .navbar-nav a{
+        font-size: 1.2rem;
+        text-align: center;
     }
     .footer1{
         display: flex;
@@ -248,6 +273,7 @@ footer ul li a{
     }
     .footer1 .redes, .footer1 .links{
         width: 50%;
+        padding-top: 1rem;
     }
     .containerFormData{
         width: 60%;
@@ -262,12 +288,21 @@ footer ul li a{
     .cards{
         flex-direction: row;
     }
+    .contenedorMain-details{
+        height: 90vh;
+    }
    
 }
 /* ESCRITORIO */
 @media (min-width: 1200px) {
+    .navbar-nav a{
+        font-size: 1.5rem;
+    }
     footer{
-        bottom: 0;
+        bottom: auto;
+    }
+    .contenedorMain-stats, .contenedorMain-contact, .contenedorMain-details{
+        height: auto;
     }
     .footer1 .redes{
         width: 20%;
@@ -305,6 +340,29 @@ footer ul li a{
     }
     .filters .categorias, .filters .search{
         width: 45%;
+    }
+}
+@media (min-width: 1400px) {
+    #footerDetail{
+        bottom: 0;
+    }
+}
+@media (min-width: 1800px){
+    footer {
+    bottom: auto;
+    }
+    #footerDetail, #footerContact{
+        bottom: auto;
+    }
+    
+    .containerFormData {
+        height: 450px;
+    }
+    .containerFormData div {
+        padding: 0.5rem 1rem;
+      }
+    .contenedorMain-stats, .contenedorMain-contact, .contenedorMain-details, .contenedorMain-home, .contenedorMain-past, .contenedorMain-upcoming{
+        height: 100vh;
     }
 }
 
