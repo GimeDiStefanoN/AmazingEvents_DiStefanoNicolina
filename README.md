@@ -22,6 +22,7 @@ Las tecnologias utilizadas para el mismo fueron:
 ___
 ##	:white_check_mark: PREVISUALIZACION
 
+![amazing_events_preview](https://user-images.githubusercontent.com/97200944/222548275-06fe43b2-8f63-4f3f-8d1f-c25a699038ab.png)
 
 ___
 
