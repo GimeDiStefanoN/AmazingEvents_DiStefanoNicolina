@@ -97,7 +97,10 @@ header nav #navbarScroll{
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: space-around;
+    justify-content: space-between;
+}
+.form-check{
+    width: 133px;
 }
 
 .cards{
@@ -115,10 +118,18 @@ header nav #navbarScroll{
     width: 18rem;
     height: 23.938rem;
 }
+.card:hover{
+    box-shadow: 5px 5px 2px 0px rgba(213, 45, 169, 0.734);
+    transform: scale(0.9)
+}
 .card img, .card .card-body{
     height: 50%;
 }
-
+.price{
+    font-weight: bold;
+    font-size: 1.2rem;
+    color: rgb(131, 2, 75);
+}
 .card-body .card-title, .card-body .btnCard{
     height: 10%;
 }
@@ -318,9 +329,9 @@ footer ul li a{
     }
 
     /* MAIN */
-    .filters{
+    /* .filters{
         flex-direction: row;
-    }
+    } */
     .cards{
         flex-direction: row;
     }
@@ -334,6 +345,10 @@ footer ul li a{
         width: 100%;
         object-fit: cover;
     }
+
+    /* .d-flex{
+        margin: 25% 0;
+    } */
     /* FOOTER */
     .footer1{
         height: 70%;
