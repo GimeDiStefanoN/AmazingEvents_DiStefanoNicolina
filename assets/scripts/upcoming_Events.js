@@ -5,19 +5,35 @@ const divCategorias = document.querySelector('.categorias'); //contenedor de che
 
 //ESCUCHO EVENTOS
 
-inputSearch.addEventListener('input', filterCombined); //escucho el e del search
-divCategorias.addEventListener('change',filterCombined); //escucho el e del checks
+//funciones filtros separados
+inputSearch.addEventListener('input', () =>{
+    //console.log('buscando');
+    let filterSearch= searchEvent(data.events,inputSearch.value);
+    console.log(filterSearch); //si anda en consola pero de todos los e
+    renderCards(filterSearch); //no anda
+}); //escucho el e del search
+
+divCategorias.addEventListener('change',() =>{
+    //console.log('cambiando');
+    let filterChecks = filterCategory(data.events);
+    console.log(filterChecks); //si anda en consola pero de todos los e
+    renderCards(filterChecks); //no anda
+});
+
+// funcion filtro combinada
+// inputSearch.addEventListener('input', filterCombined); //escucho el e del search
+// divCategorias.addEventListener('change',filterCombined); //escucho el e del checks
+// function filterCombined(){ //combino filtros
+//     let filterSearch = searchEvent(data.events,inputSearch.value); //filtro de search
+//     let filterChecks = filterCategory(filterSearch); //filtro de checks al search
+//     renderCards(filterChecks);
+// }
 
 // FUNCIONES 
-function filterCombined(){ //combino filtros
-    let filterSearch = searchEvent(data.events,inputSearch.value); //filtro de search
-    let filterChecks = filterCategory(filterSearch); //filtro de checks al search
-    renderCards(filterChecks);
-}
 
-function renderCards(data) { // CODIGO PARA MOSTRAR DIFERENTES CARD DE ACUERDO A LA FECHA
+function renderCards(array) { // CODIGO PARA MOSTRAR DIFERENTES CARD DE ACUERDO A LA FECHA
     let cardsEventos = ''; //creo las card 
-    let currentDate = new Date(data.currentDate); //obtengo la fecha de corte
+    let currentDate = new Date(array.currentDate); //obtengo la fecha de corte
     data.events.forEach(function(event) {
         var fecha = new Date(event.date);//obtengo la fecha del evento
         
@@ -63,9 +79,9 @@ function renderChecks(data){  //para mostrar los checks
 
 function searchEvent(eventos,input){ //para buscar escribiendo
     let inputEntered = input.toLowerCase(); //al input lo paso a minuscula
-    console.log(inputEntered);
+    //console.log(inputEntered);
     let eventsFiltrados = eventos.filter(evento => evento.name.toLowerCase().includes(inputEntered));
-    console.log(eventsFiltrados);
+    //console.log(eventsFiltrados);
     return eventsFiltrados
 }
 
@@ -76,7 +92,7 @@ function filterCategory(opcion){ //para buscar por checks
         .filter(input => input.checked) //que estan seleccionadas
         .map( input => input.value) //y me traigo el nombre
     //console.log(checksElegidos);
-    let opcionesFiltradas = opcion.filter(check => checksElegidos.includes(check.category))
+    let opcionesFiltradas = data.events.filter(check => checksElegidos.includes(check.category))
     //console.log(opcionesFiltradas);
     if(checksElegidos.length > 0){
         return opcionesFiltradas
