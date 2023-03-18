@@ -45,9 +45,10 @@ header nav{
   
 header nav #logo-Web{
     height: 100%;
-    width: 70%;
+    width: 60%;
 }
 header nav #logo-Web img{
+    padding-left: 1rem;
     height: 100%;
     width: 100%;
 }
@@ -306,6 +307,7 @@ footer ul li a{
    display: inline-block;
    font-size: 0.7rem;
    text-align: center;
+   width: 100%;
 }
 .footer1 .links ul li a:hover{
     color: hsla(342, 100%, 46%, 1);
@@ -322,6 +324,11 @@ footer ul li a{
 }
 
 /*MEDIA QUERIES*/
+@media (max-width: 260px){
+    header nav #logo-Web{
+        width: 50%;
+    }
+} 
 @media (min-width: 768px) {
     header nav #logo-Web{
         width: 40%;

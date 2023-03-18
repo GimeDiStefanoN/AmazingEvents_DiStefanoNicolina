@@ -1,104 +1,80 @@
-// traigo del html
+// TRAIGO DEL HTML
 const divCards = document.querySelector('.cards'); //contenedor de cards
-const inputSearch = document.getElementById("search"); //traigo el input
 const divCategorias = document.querySelector('.categorias'); //contenedor de checks
+const inputSearch = document.getElementById("search"); //traigo el input de busqueda
 
-//ESCUCHO EVENTOS
+// ESCUCHO LOS EVENTOS
 
-//funciones filtros separados
-inputSearch.addEventListener('input', () =>{
-    //console.log('buscando');
-    let filterSearch= searchEvent(data.events,inputSearch.value);
-    console.log(filterSearch); //si anda en consola pero de todos los e
-    renderCards(filterSearch); //no anda
-}); //escucho el e del search
+inputSearch.addEventListener('input', superFiltro);
 
-divCategorias.addEventListener('change',() =>{
-    //console.log('cambiando');
-    let filterChecks = filterCategory(data.events);
-    console.log(filterChecks); //si anda en consola pero de todos los e
-    renderCards(filterChecks); //no anda
-});
+divCategorias.addEventListener('change', superFiltro);
 
-// funcion filtro combinada
-// inputSearch.addEventListener('input', filterCombined); //escucho el e del search
-// divCategorias.addEventListener('change',filterCombined); //escucho el e del checks
-// function filterCombined(){ //combino filtros
-//     let filterSearch = searchEvent(data.events,inputSearch.value); //filtro de search
-//     let filterChecks = filterCategory(filterSearch); //filtro de checks al search
-//     renderCards(filterChecks);
-// }
-
-// FUNCIONES 
-
-function renderCards(array) { // CODIGO PARA MOSTRAR DIFERENTES CARD DE ACUERDO A LA FECHA
-    let cardsEventos = ''; //creo las card 
-    let currentDate = new Date(array.currentDate); //obtengo la fecha de corte
-    data.events.forEach(function(event) {
-        var fecha = new Date(event.date);//obtengo la fecha del evento
-        
-    if (fecha > currentDate) { // Comparo las fechas
-        cardsEventos +=	`
-                    <div class="card" style="width: 18rem;">
-                        <img src="${event.image}"  class="card-img-top" alt="cinema">
-                        <div class="card-body">
-                            <h5 class="card-title">${event.name}</h5>
-                            <p class="card-text">${event.description}</p>
-                            <div class="btnCard">
-                                <span class="price">$ ${event.price}</span>
-                                <a href="./details.html?id=${event._id}" class="btn btn-primary" id= ${event._id}>See more</a>
-                            </div>
-                        </div>
-                    </div>`
-      } else{
-        divCards.innerHTML = `<h2 class="text-white fw-bolder">Try again, no events requested</h2>`
-        return
-      }
-    });
-    divCards.innerHTML = cardsEventos
+function superFiltro() {
+    let filtroBusqueda =searchName(upcomingEvents, inputSearch.value);
+    let filtroCategorias = filterCategory('.form-check-input');
+    const filtroFinal = filtroBusqueda.filter((evento) => filtroCategorias.includes(evento));
+    renderCards(filtroFinal);
 }
 
-function renderChecks(data){  //para mostrar los checks
-    let setCategorias = new Set(data.events.map( event => event.category)) //con el map, me traigo todas las cateGorias del DATA y con el SET, hago que no no se repitan
+// FUNCIONES
+
+function renderChecks(data) { //para mostrar los checks
+    let setCategorias = new Set(data.events.map(event => event.category)); //con el map, me traigo todas las cateGorias del DATA y con el SET, hago que no se repitan
     //console.log(setCategorias)
-    let todosChecks = Array.from(setCategorias) //creo un array con las categorias del DATA filtradas
-    //console.log(todosChecks)
     let opcionesChecks = [] //array donde iran cada check
-    //console.log(opcionesChecks)
-    todosChecks.forEach(categoria => {
+    //console.log(opcionesChecks);
+    setCategorias.forEach(categoria =>{
         opcionesChecks +=`
             <div class="form-check">
                 <input class="form-check-input" type="checkbox" id="${categoria}" value="${categoria}">
                 <label class="form-check-label" for="${categoria}">
                     ${categoria}
                 </label>
-            </div>` 
+            </div>
+            ` 
     });
-    divCategorias.innerHTML = opcionesChecks
-}
-
-function searchEvent(eventos,input){ //para buscar escribiendo
-    let inputEntered = input.toLowerCase(); //al input lo paso a minuscula
-    //console.log(inputEntered);
-    let eventsFiltrados = eventos.filter(evento => evento.name.toLowerCase().includes(inputEntered));
-    //console.log(eventsFiltrados);
-    return eventsFiltrados
-}
-
-function filterCategory(opcion){ //para buscar por checks
-    let inputsChecks = Array.from(document.querySelectorAll("input[type='checkbox']")) //traigo todos los check del html para usar y lo convierto en array
-    //console.log(inputsChecks);
-    let checksElegidos = inputsChecks //creo una variable donde voy a guardar las opciones
-        .filter(input => input.checked) //que estan seleccionadas
-        .map( input => input.value) //y me traigo el nombre
-    //console.log(checksElegidos);
-    let opcionesFiltradas = data.events.filter(check => checksElegidos.includes(check.category))
-    //console.log(opcionesFiltradas);
-    if(checksElegidos.length > 0){
-        return opcionesFiltradas
-    }
-    return opcion
-}
-
-renderCards(data); //llamo a la function > muestro las cards
+    divCategorias.innerHTML = opcionesChecks;
+};
 renderChecks(data); //llamo a la function > muestro los checks
+
+let currentDate = data.currentDate; 
+
+let upcomingEvents = data.events.filter(dat => dat.date > currentDate) //comparo fechas y creo array nuevo de eventos con fechas pasadas
+
+function renderCards(params) {
+    let cardEvents = params.length > 0 ? params.map(card  => ` 
+        <div class="card" style="width: 18rem;">
+            <img src="${card.image}"  class="card-img-top" alt="cinema">
+            <div class="card-body">
+                <h5 class="card-title">${card.name}</h5>
+                <p class="card-text">${card.description}</p>
+                <div class="btnCard">
+                    <span class="price">$ ${card.price}</span>
+                    <a href="./details.html?id=${card._id}" class="btn btn-primary" id= ${card._id}>See more</a>
+                </div>
+            </div>
+        </div>
+        ` )
+        : divCards.innerHTML = `<h2 class="text-white fw-bolder">Try again, no events requested</h2>`
+
+        divCards.innerHTML = cardEvents //renderizo las cards con fecha menor
+}
+renderCards(upcomingEvents); //llamo a la funcion > muestro las cards
+
+function searchName(names, input) { //para buscar por nombre (escribiendo)
+    let eventosFiltrados = names.filter(elemento => elemento.name.toLowerCase().includes(input.toLowerCase()));
+    console.log(eventosFiltrados);
+    return eventosFiltrados
+}
+
+function filterCategory(selector) {
+    const categoriasChecks = Array.from(document.querySelectorAll(selector)); //traigo todos los check del html para usar y lo convierto en array
+    const categorias = categoriasChecks.filter(check => check.checked).map(check => check.value); //obtengo el valor de los check seleccionados
+
+    const eventosFiltrados = upcomingEvents.filter(evento => categorias.includes(evento.category)); //filtro los event por las categorias elegidas
+
+    if (categorias.length > 0) {
+        return eventosFiltrados; //si coincide muestro los filtrados
+    }
+    return upcomingEvents; //sino, todos los pasados
+}
