@@ -29,7 +29,7 @@ function renderCards(eventos){  //para mostrar las cards
     let cardsEventos = '';
     eventos.forEach(event =>{
         cardsEventos +=`
-            <div class="card" style="width: 18rem;">
+            <div class="card">
                 <img src="${event.image}"  class="card-img-top" alt="cinema">
                 <div class="card-body">
                     <h5 class="card-title">${event.name}</h5>

@@ -43,7 +43,7 @@ let upcomingEvents = data.events.filter(dat => dat.date > currentDate) //comparo
 
 function renderCards(params) {
     let cardEvents = params.length > 0 ? params.map(card  => ` 
-        <div class="card" style="width: 18rem;">
+        <div class="card">
             <img src="${card.image}"  class="card-img-top" alt="cinema">
             <div class="card-body">
                 <h5 class="card-title">${card.name}</h5>

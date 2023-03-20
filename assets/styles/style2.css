@@ -23,7 +23,7 @@ main{
     background-attachment: fixed;
     display: flex;
     flex-direction: column;
-    margin-bottom: 50px; /*para separar main de footer y no superponga*/
+    margin-bottom: 48px; /*para separar main de footer y no superponga*/
     padding-bottom: 25px; /*para separar main de footer y no superponga*/
 }
 footer{
@@ -47,6 +47,10 @@ header nav #logo-Web{
     height: 100%;
     width: 60%;
 }
+header nav #logo-Web #logo2{
+    display: none;
+}
+
 header nav #logo-Web img{
     padding-left: 1rem;
     height: 100%;
@@ -324,9 +328,28 @@ footer ul li a{
 }
 
 /*MEDIA QUERIES*/
-@media (max-width: 260px){
+@media (max-width: 307px){
+    header nav #logo-Web #logo1{
+        display: none;
+    }
+    header nav #logo-Web #logo2{
+        display: block;
+    }
     header nav #logo-Web{
-        width: 50%;
+        width: 40%;
+    }
+    .banner h1{
+        font-size: 1rem;
+    }
+    .card{
+        width: 15rem;
+    }
+
+    .footer1{
+        padding: 0 0.5rem;
+    }
+    .footer2 p{
+        font-size: 0.5rem;
     }
 } 
 @media (max-width: 346px){
@@ -338,6 +361,12 @@ footer ul li a{
     }
     .container, .container-fluid, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl {
          --bs-gutter-x: 0;
+    }
+    .banner h1{
+        font-size: 1.2rem;
+    }
+    .card{
+        width: 15rem;
     }
 } 
 
