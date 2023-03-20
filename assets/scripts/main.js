@@ -102,3 +102,4 @@ function filterCategory(opcion){ //para buscar por checks
 //     inputSearch.value = "";
 //     renderCards(data.events)
 // };
+

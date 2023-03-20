@@ -329,6 +329,18 @@ footer ul li a{
         width: 50%;
     }
 } 
+@media (max-width: 346px){
+    table thead tr th, table tbody tr td{
+        font-size: 1rem
+    }
+    .table>:not(caption)>*>* {
+        padding: 0.5rem 0.2rem;
+    }
+    .container, .container-fluid, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl {
+         --bs-gutter-x: 0;
+    }
+} 
+
 @media (min-width: 768px) {
     header nav #logo-Web{
         width: 40%;
