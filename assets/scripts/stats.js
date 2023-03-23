@@ -40,21 +40,65 @@ let upcomingEvents = [];
 
 async function iniciar() {
     let data = await getData();
-    //console.log(data);
+    console.log(data);
     let currentDate = data.currentDate;
-    pastEvents = data.events.filter(dat => dat.date < currentDate);
-    upcomingEvents = data.events.filter(dat => dat.date > currentDate);
+    pastEvents = data.events.filter(dat => {return dat.date < currentDate});
+    upcomingEvents = data.events.filter(dat => {return dat.date > currentDate});
     //console.log(pastEvents);
     //console.log(upcomingEvents);
+    calcularPorcentajePasado();
+    calcularPorcentajeFuturo();
+    maxOmin ()
 }
 iniciar();
 
+let porcentage = [];
+//console.log(porcentage);
+async function calcularPorcentajePasado(){
+    pastEvents.forEach(evento => {
+    let calculoPasado = (evento.assistance/evento.capacity) * 100;
+    porcentage.push(calculoPasado);
+    //console.log(porcentage);
+    }
+  )
+}
+async function calcularPorcentajeFuturo() {
+    upcomingEvents.forEach(evento => {
+        let calculoFuturo = (evento.estimate/evento.capacity) * 100;
+        porcentage.push(calculoFuturo);
+        //console.log(porcentage);
+    })
+}
 
-divAllEvents.innerHTML = `
-<td>1</td>
-<td>2</td>
-<td>3</td>
-`;
+let eventoMax = {nombre: '', porcentaje: Math.max.apply(null, porcentage)}
+let eventoMin = {nombre: '', porcentaje: Math.min.apply(null, porcentage)}
+let eventoMaxCapacidad = {nombre: '', capacidad: 0};
+
+async function maxOmin (){
+    porcentage.forEach((p, i) => {
+        let evento = data.events[i];
+        if (p > eventoMax.porcentaje) {
+            eventoMax = {nombre: evento.name, porcentaje: p};
+        }
+        if (p < eventoMin.porcentaje) {
+            eventoMin = {nombre: evento.name, porcentaje: p};
+        }
+        if (evento.capacity > eventoMaxCapacidad.capacidad) {
+            eventoMaxCapacidad = {nombre: evento.name, capacidad: evento.capacity};
+        }
+    });
+    
+    divAllEvents.innerHTML = `
+        <td>${eventoMax.nombre} (${eventoMax.porcentaje.toFixed(2)}%)</td>
+        <td>${eventoMin.nombre} (${eventoMin.porcentaje.toFixed(2)}%)</td>
+        <td>${eventoMaxCapacidad.nombre} (${eventoMaxCapacidad.capacidad})</td>
+    `;
+}
+
+
+
+
+
 divUpEvents.innerHTML = `
 <thead class="thead-dark">
     <tr>
