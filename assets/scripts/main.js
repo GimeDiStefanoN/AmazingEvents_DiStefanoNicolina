@@ -6,25 +6,9 @@ const divCategorias = document.querySelector('.categorias'); //contenedor de che
 // FETCH
 let data;
         // CON LA URL
-// async function getData(){
-//     try{
-//         await fetch("https://mindhub-xj03.onrender.com/api/amazing")
-//         .then(response => response.json())
-//         .then(json => data = json)
-        
-//         //console.log(data);
-//         return data
-//     } catch(error){
-//         divCards.innerHTML =`<h2 class="text-white fw-bolder text-center">An error occurred, please try again later: </h2>` 
-//         + error.message
-//     }
-    
-// };
-
-        // CON EL JSON
 async function getData(){
     try{
-        await fetch('assets/scripts/amazing.json')
+        await fetch("https://mindhub-xj03.onrender.com/api/amazing")
         .then(response => response.json())
         .then(json => data = json)
         
@@ -36,6 +20,22 @@ async function getData(){
     }
     
 };
+
+        // CON EL JSON
+// async function getData(){
+//     try{
+//         await fetch('assets/scripts/amazing.json')
+//         .then(response => response.json())
+//         .then(json => data = json)
+        
+//         console.log(data);
+//         return data
+//     } catch(error){
+//         divCards.innerHTML =`<h2 class="text-white fw-bolder text-center">An error occurred, please try again later: </h2>` 
+//         + error.message
+//     }
+    
+// };
 getData();
 
 async function iniciar() {

@@ -192,6 +192,14 @@ table thead tr th{
 table tbody tr{
     height: 30px;
 }
+table tbody tr:first-child{
+    height: 30px;
+    background-color: rgb(223, 218, 218)
+}
+table tbody tr:first-child td{
+    text-align: center;
+    text-transform: uppercase;
+}
 table tbody tr td{
     width: 33%;
     text-align: justify;
@@ -356,6 +364,11 @@ footer ul li a{
     table thead tr th, table tbody tr td{
         font-size: 1rem
     }
+    table tbody tr:first-child td{
+        font-size: 0.7rem;
+    }
+
+  
     .table>:not(caption)>*>* {
         padding: 0.5rem 0.2rem;
     }
