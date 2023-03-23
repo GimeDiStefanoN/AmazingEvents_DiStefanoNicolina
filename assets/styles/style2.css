@@ -192,17 +192,19 @@ table thead tr th{
 table tbody tr{
     height: 30px;
 }
-table tbody tr:first-child{
+table thead tr:nth-child(2){
     height: 30px;
     background-color: rgb(223, 218, 218)
 }
-table tbody tr:first-child td{
+table thead tr:nth-child(2) td{
     text-align: center;
     text-transform: uppercase;
+    font-size: 1rem;
 }
 table tbody tr td{
     width: 33%;
     text-align: justify;
+    
 }
 /* -- DETAIL */
 .containerDetailData{

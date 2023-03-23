@@ -100,40 +100,16 @@ async function maxOmin (){
 
 
 divUpEvents.innerHTML = `
-<thead class="thead-dark">
-    <tr>
-        <th colspan="3">Upcoming events statistics by category</th>
-    </tr>
-</thead>
-<tbody>
-    <tr>
-        <td>Categories</td>
-        <td>Revenues</td>
-        <td>Percentage of attendance</td>
-    </tr>
     <tr>
         <td>1</td>
         <td>2</td>
         <td>3</td>
     </tr>
-</tbody>
 `;
 divPastEvents.innerHTML = `
-<thead class="thead-dark">
-    <tr>
-    <th colspan="3">Past Events statistics by category</th>
-    </tr>
-</thead>
-<tbody>
-    <tr>
-        <td>Categories</td>
-        <td>Revenues</td>
-        <td>Percentage of attendance</td>
-    </tr>
-    <tr>
-        <td>1</td>
-        <td>2</td>
-        <td>3</td>
-    </tr>          
-</tbody>
+<tr>
+    <td>1</td>
+    <td>2</td>
+    <td>3</td>
+</tr>
 `;
