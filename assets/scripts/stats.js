@@ -48,7 +48,9 @@ async function iniciar() {
     //console.log(upcomingEvents);
     calcularPorcentajePasado();
     calcularPorcentajeFuturo();
-    maxOmin ()
+    maxOmin ();
+    mostrarCategoria()
+    
 }
 iniciar();
 
@@ -94,7 +96,19 @@ async function maxOmin (){
         <td>${eventoMaxCapacidad.nombre} (${eventoMaxCapacidad.capacidad})</td>
     `;
 }
+let setCategorias = []
+async function mostrarCategoria(){
+    setCategorias = new Set(pastEvents.map(event => event.category))
+    console.log("🚀 ~ file: stats.js:101 ~ mostrarCategoria ~ setCategorias:", setCategorias)
 
+    divPastEvents.innerHTML = `
+    <tr>
+        <td>${setCategorias.value}</td>
+        <td>2</td>
+        <td>3</td>
+    </tr>
+    `; 
+}
 
 
 

@@ -366,10 +366,10 @@ footer ul li a{
     table thead tr th, table tbody tr td{
         font-size: 1rem
     }
-    table tbody tr:first-child td{
+    
+    table thead tr:nth-child(2) td{
         font-size: 0.7rem;
     }
-
   
     .table>:not(caption)>*>* {
         padding: 0.5rem 0.2rem;
