@@ -364,7 +364,7 @@ footer ul li a{
 } 
 @media (max-width: 346px){
     table thead tr th, table tbody tr td{
-        font-size: 1rem
+        font-size: 0.9rem
     }
     
     table thead tr:nth-child(2) td{
@@ -397,9 +397,7 @@ footer ul li a{
     }
 
     /* MAIN */
-    /* .filters{
-        flex-direction: row;
-    } */
+
     .cards{
         flex-direction: row;
     }
@@ -413,10 +411,7 @@ footer ul li a{
         width: 100%;
         object-fit: cover;
     }
-
-    /* .d-flex{
-        margin: 25% 0;
-    } */
+    
     /* FOOTER */
     .footer1{
         height: 70%;
