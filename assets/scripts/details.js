@@ -1,4 +1,46 @@
-console.log([document]);
+//console.log([document]);
+
+// FETCH
+let data;
+        // CON LA URL
+async function getData(){
+    try{
+        await fetch("https://mindhub-xj03.onrender.com/api/amazing")
+        .then(response => response.json())
+        .then(json => data = json)
+        
+        //console.log(data);
+        return data
+    } catch(error){
+        divCards.innerHTML =`<h2 class="text-white fw-bolder text-center">An error occurred, please try again later: </h2>` 
+        + error.message
+    }
+        console.log("🚀 ~ file: details.js:18 ~ getData ~ data:", data)
+    
+};
+
+        // CON EL JSON
+// async function getData(){
+//     try{
+//         await fetch('assets/scripts/amazing.json')
+//         .then(response => response.json())
+//         .then(json => data = json)
+        
+//         console.log(data);
+//         return data
+//     } catch(error){
+//         divCards.innerHTML =`<h2 class="text-white fw-bolder text-center">An error occurred, please try again later: </h2>` 
+//         + error.message
+//     }
+    
+// };
+getData();
+async function iniciar() {
+    let data = await getData();
+    console.log(data);
+    buscarId()
+}
+iniciar();
 const queryString = location.search //accedo a la propiedad de location y guardo en variable (los queryString estan despues del ? en la ruta dentro de <a></a> en el main)
 
 const params = new URLSearchParams(queryString) //instancio un URLsearchParams, para obtener los distintos queryString de una web(de una ruta)
@@ -6,9 +48,9 @@ const params = new URLSearchParams(queryString) //instancio un URLsearchParams, 
 const id = params.get("id") //en una variable capturo el parametro id para poder usar de la nueva ruta params anterior
 console.log(id);
 
-const eventos = data.events.find(event => event._id == id ) //identifico el evento al que se le hace clic
-
-// traigo del html
+async function buscarId(){
+    const eventos = data.events.find(event => event._id == id ) //identifico el evento al que se le hace clic
+    // traigo del html
 const divDetail = document.getElementById("containerDetail") 
 //document.querySelector('.containerDetail'); //contenedor de detail
 
@@ -45,3 +87,6 @@ divDetail.innerHTML = `
                     
   </div>
 `
+}
+
+
