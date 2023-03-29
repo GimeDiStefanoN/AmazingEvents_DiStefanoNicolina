@@ -216,7 +216,7 @@ table tbody tr td{
     flex-direction: column;
     overflow: auto;
 }
-.containerDetail figure, .containerDetail section{
+.containerDetail figure, .containerDetail .infoDetail{
     height: 50%;
     margin: 0;
 }
@@ -404,14 +404,41 @@ footer ul li a{
     .containerFormData{
         width: 60%;
     }
+    .containerDetail{
+        height: 75vh;
+    }
     .containerDetailData{
         gap: 1rem;
+        flex-direction: row;
+        width: 90%;
+    }
+   
+    .containerDetail figure, .containerDetail .infoDetail{
+        width: 50%;
+        height: 100%;
+        margin: 0;
     }
     .containerDetail figure img{
         width: 100%;
+        height: 100%;
         object-fit: cover;
     }
-    
+    .infoDetail{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        gap: 1rem;
+    }
+
+    .textDetail{
+        height: 80%;
+    }
+    #btnDetail{
+        height: 20%;
+    }
+    #btnDetail button{
+        width: 50%;
+    }
     /* FOOTER */
     .footer1{
         height: 70%;
