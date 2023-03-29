@@ -3,11 +3,53 @@ const divCards = document.querySelector('.cards'); //contenedor de cards
 const inputSearch = document.getElementById("search"); //traigo el input
 const divCategorias = document.querySelector('.categorias'); //contenedor de checks
 
+// FETCH
+let data;
+        // CON LA URL
+async function getData(){
+    try{
+        await fetch("https://mindhub-xj03.onrender.com/api/amazing")
+        .then(response => response.json())
+        .then(json => data = json)
+        
+        //console.log(data);
+        return data
+    } catch(error){
+        divCards.innerHTML =`<h2 class="text-white fw-bolder text-center">An error occurred, please try again later: </h2>` 
+        + error.message
+    }
+    
+};
+
+        // CON EL JSON
+// async function getData(){
+//     try{
+//         await fetch('assets/scripts/amazing.json')
+//         .then(response => response.json())
+//         .then(json => data = json)
+        
+//         console.log(data);
+//         return data
+//     } catch(error){
+//         divCards.innerHTML =`<h2 class="text-white fw-bolder text-center">An error occurred, please try again later: </h2>` 
+//         + error.message
+//     }
+    
+// };
+getData();
+
+async function iniciar() {
+    let data = await getData();
+    //console.log(data);
+    renderChecks(data.events) //llamo a la function > muestro los checks
+    renderCards(data.events) //llamo a la function > muestro las cards
+}
+iniciar();
+
 //ESCUCHO EVENTOS
 
 inputSearch.addEventListener('input', filterCombined); //escucho el e del search
 divCategorias.addEventListener('change',filterCombined); //escucho el e del checks
-
 
 function filterCombined(){ //combino filtros
     let filterSearch = searchEvent(data.events,inputSearch.value); //filtro de search
@@ -15,11 +57,7 @@ function filterCombined(){ //combino filtros
     renderCards(filterChecks);
 }
 
-renderCards(data.events); //llamo a la function > muestro las cards
-renderChecks(data.events); //llamo a la function > muestro los checks
-
 // FUNCIONES 
-
 
 function renderCards(eventos){  //para mostrar las cards
     if(eventos.length == 0){
@@ -29,7 +67,7 @@ function renderCards(eventos){  //para mostrar las cards
     let cardsEventos = '';
     eventos.forEach(event =>{
         cardsEventos +=`
-            <div class="card" style="width: 18rem;">
+            <div class="card">
                 <img src="${event.image}"  class="card-img-top" alt="cinema">
                 <div class="card-body">
                     <h5 class="card-title">${event.name}</h5>
@@ -51,7 +89,7 @@ function renderChecks(categorias){  //para mostrar los checks
     //console.log(setCategorias)
     let todosChecks = Array.from(setCategorias) //creo un array con las categorias del DATA filtradas
     //console.log(todosChecks)
-    let opcionesChecks = [] //array donde iran cada check
+    let opcionesChecks = "" //array donde iran cada check
     //console.log(opcionesChecks)
     todosChecks.forEach(categoria => {
         opcionesChecks +=`
@@ -91,6 +129,8 @@ function filterCategory(opcion){ //para buscar por checks
 
 
 
+
+
 //no puedo aun implementar correctamente la funcion de borrar lo elegido al hacer focusout
 
 // inputSearch.addEventListener('focusout', resetFilters); //escucho el e para borrar filtros
@@ -102,4 +142,3 @@ function filterCategory(opcion){ //para buscar por checks
 //     inputSearch.value = "";
 //     renderCards(data.events)
 // };
-

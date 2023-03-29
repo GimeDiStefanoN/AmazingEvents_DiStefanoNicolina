@@ -3,6 +3,51 @@ const divCards = document.querySelector('.cards'); //contenedor de cards
 const divCategorias = document.querySelector('.categorias'); //contenedor de checks
 const inputSearch = document.getElementById("search"); //traigo el input de busqueda
 
+// FETCH
+let data;
+        // CON LA URL
+async function getData(){
+    try{
+        await fetch("https://mindhub-xj03.onrender.com/api/amazing")
+        .then(response => response.json())
+        .then(json => data = json)
+        //console.log(data);
+        return data
+    } catch(error){
+        divCards.innerHTML =`<h2 class="text-white fw-bolder text-center">An error occurred, please try again later: </h2>` 
+        + error.message
+    }
+};
+
+        // CON EL JSON
+// async function getData(){
+//     try{
+//         await fetch('assets/scripts/amazing.json')
+//         .then(response => response.json())
+//         .then(json => data = json)
+        
+//         //console.log(data);
+//         return data
+//     } catch(error){
+//         divCards.innerHTML =`<h2 class="text-white fw-bolder text-center">An error occurred, please try again later: </h2>` 
+//         + error.message
+//     }
+    
+// };
+getData();
+
+let upcomingEvents = [];
+async function iniciar() {
+    let data = await getData();
+    //console.log(data);
+    let currentDate = data.currentDate; 
+    upcomingEvents = data.events.filter(dat => dat.date > currentDate) //comparo fechas y creo array nuevo de eventos con fechas pasadas
+    //console.log(upcomingEvents);
+    renderChecks(data); //llamo a la function > muestro los checks
+    renderCards(upcomingEvents); //llamo a la funcion > muestro las cards
+}
+iniciar();
+
 // ESCUCHO LOS EVENTOS
 
 inputSearch.addEventListener('input', superFiltro);
@@ -14,6 +59,7 @@ function superFiltro() {
     let filtroCategorias = filterCategory('.form-check-input');
     const filtroFinal = filtroBusqueda.filter((evento) => filtroCategorias.includes(evento));
     renderCards(filtroFinal);
+    console.log(filtroFinal);
 }
 
 // FUNCIONES
@@ -35,15 +81,10 @@ function renderChecks(data) { //para mostrar los checks
     });
     divCategorias.innerHTML = opcionesChecks;
 };
-renderChecks(data); //llamo a la function > muestro los checks
-
-let currentDate = data.currentDate; 
-
-let upcomingEvents = data.events.filter(dat => dat.date > currentDate) //comparo fechas y creo array nuevo de eventos con fechas pasadas
 
 function renderCards(params) {
     let cardEvents = params.length > 0 ? params.map(card  => ` 
-        <div class="card" style="width: 18rem;">
+        <div class="card">
             <img src="${card.image}"  class="card-img-top" alt="cinema">
             <div class="card-body">
                 <h5 class="card-title">${card.name}</h5>
@@ -59,11 +100,10 @@ function renderCards(params) {
 
         divCards.innerHTML = cardEvents //renderizo las cards con fecha menor
 }
-renderCards(upcomingEvents); //llamo a la funcion > muestro las cards
 
 function searchName(names, input) { //para buscar por nombre (escribiendo)
     let eventosFiltrados = names.filter(elemento => elemento.name.toLowerCase().includes(input.toLowerCase()));
-    console.log(eventosFiltrados);
+    //console.log(eventosFiltrados);
     return eventosFiltrados
 }
 
