@@ -7,7 +7,7 @@ ___
 
 ##	:white_check_mark: DESCRIPCION
 
-Sitio web estático y responsive realizado como práctica del Modulo 2 del Bootcamp FRONT END dictado por [MINDHUB](https://mindhubweb.com/ "WEB DE MINDHUB"), a través del trayecto formativo del Argentina Programa 4.0
+Sitio web dinamico y responsive realizado como práctica del Modulo 2 del Bootcamp FRONT END dictado por [MINDHUB](https://mindhubweb.com/ "WEB DE MINDHUB"), a través del trayecto formativo del Argentina Programa 4.0
 
 Cursado en Febrero/Marzo del 2023
 ___
